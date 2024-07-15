@@ -3,12 +3,9 @@ import sys
 
 import pygame
 
-# Constants
-WIDTH, HEIGHT = 800, 800
-CELL_SIZE = WIDTH // 8
-WHITE, BLACK = (255, 255, 255), (0, 0, 0)
-ROWS = 8
-COLUMNS = 8
+from const import *
+from src.game import Game
+
 
 def draw_chessboard(screen):
   for x in range(8):
@@ -23,18 +20,23 @@ class Main:
     pygame.init()
     self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Chess Game")
+    self.game = Game()
     
 
   def run(self):
     running = True
+    screen = self.screen
+    game = self.game
+    
     while running:
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           running = False
 
-      draw_chessboard(self.screen)
+      game.show_chess_board(screen)
+      
       pygame.display.flip()
-    
+      pygame.display.update()
     pygame.quit()
       
 

@@ -1,0 +1,6 @@
+# Constants
+WIDTH, HEIGHT = 800, 800
+CELL_SIZE = WIDTH // 8
+WHITE, BLACK = (255, 255, 255), (0, 0, 0)
+ROWS = 8
+COLUMNS = 8
